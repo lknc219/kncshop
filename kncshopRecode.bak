@@ -1,0 +1,18 @@
+------------------------------------
+kncshop
+
+DB: H2 (차후 변경 예정)
+
+Gradle Project
+Java11
+SpringBoot 2.5.6
+
+Dependencies
+	Spring Boot DevTools
+	Lombok
+	Spring Web
+	Spring Security
+	Spring Data JPA
+------------------------------------
+
+controller.CommonController homeController 는 타나 index.page가 안나옴.
