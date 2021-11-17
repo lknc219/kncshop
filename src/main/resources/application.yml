@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/C:\Users\knc21\Desktop\study\h2\bin/kncshop
+    url: jdbc:h2:tcp://localhost/C:\Users\k\Desktop\knc\h2\bin/kncshop
     username: sa
     password: 1234
     driver-class-name: org.h2.Driver
@@ -12,14 +12,14 @@ spring:
     view:
       suffix: .html
 
-#  jpa:
-#    hibernate:
-#      ddl-auto: create
-#    properties:
-#      hibernate:
-#        format_sql: true
-#        default_batch_fetch_size: 100
-#
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
 #logging.level:
 #  org.hibernate.SQL: debug
 logging:
