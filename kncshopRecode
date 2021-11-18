@@ -15,4 +15,4 @@ Dependencies
 	Spring Data JPA
 ------------------------------------
 
-controller.CommonController homeController 는 타나 index.page가 안나옴. 해결하기
+2021-11-18 : html include 자바스크립트로 구현 후 header 디자인 작업중. css 공부 필요.
