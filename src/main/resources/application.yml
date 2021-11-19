@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/C:\Users\k\Desktop\knc\h2\bin/kncshop
-    username: sa
+    url: jdbc:mariadb://127.0.0.1:3306/kncshop
+    username: chul
     password: 1234
-    driver-class-name: org.h2.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
   security:
     user:
       name: 1

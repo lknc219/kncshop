@@ -1,11 +1,23 @@
 ul {
     list-style: none;
+    text-align: center;
 }
 li {
-    float: left;
+    display:inline-block;
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.join-title {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 .nav-header {
-    background-color: green;
+    background-color: #99CCFF;
     height: 100px;
 }
 

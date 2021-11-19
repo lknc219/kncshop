@@ -14,5 +14,14 @@ Dependencies
 	Spring Security
 	Spring Data JPA
 ------------------------------------
+mariaDB script
 
-2021-11-18 : html include 자바스크립트로 구현 후 header 디자인 작업중. css 공부 필요.
+create database kncshop;
+
+create user 'chul'@'localhost' identified by '1234';
+
+grant all privileges on kncshop.* to 'chul'@'localhost';
+
+flush privileges;
+
+use mysql;
