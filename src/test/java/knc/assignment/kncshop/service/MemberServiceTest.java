@@ -32,7 +32,7 @@ class MemberServiceTest {
     @Test
     public void 회원가입() throws Exception {
         Member member = new Member();
-        member.setName("김남철");
+        member.setMemberName("김남철");
 
         Long joinId = memberService.join(member);
         em.flush();

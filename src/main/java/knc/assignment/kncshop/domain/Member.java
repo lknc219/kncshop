@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,25 +13,30 @@ import java.time.LocalDateTime;
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long memberId;
+
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
 
     private String username;
 
     private String password;
 
-    private String name;
+    private String useYn;
+
+    private String email;
 
     private String phoneNumber;
 
+    private String memberName;
+
     private String gender;
-
-    private UserType userType;
-
-    @Embedded
-    private Address address;
 
     private LocalDateTime joinDate;
 
     private LocalDateTime updateDate;
+
+    @OneToMany(mappedBy = "member")
+    private List<Purchase> purchases;
 
 }
