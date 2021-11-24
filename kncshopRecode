@@ -26,6 +26,8 @@ flush privileges;
 
 use mysql;
 
+insert into member (member_id,username,password,user_type)
+values ('1', 'admin', 'admin', 'A DMIN');
 
 
 ----------------------------------
@@ -34,12 +36,14 @@ use mysql;
 
 RestApi 를 만들때 기능별로 나눌지, 회원에 부여된 권한별로 나눌지
 
+--------------------------------------------------------------------------------------------
+passwordEncoder
+	Spring Security에서 제공하는 PasswordEncoder를 사용해서 BCrypt 방식을 이용한 암호화
+	SecurityConfig 클래스에 @Bean으로 getPasswordEncoder() 메소드를 구현하고 return 은 new BCryptPasswordEncoder 를 만들어준다.
+	Bean 으로 만들어두고 비밀번호 확인이나 insert시 사용하면 된다.
 
-진행중 내용
 
-Spring Security에서 제공하는 PasswordEncoder를 사용해서 BCrypt 방식을 이용한 암호화
-SecurityConfig 클래스에 @Bean으로 getPasswordEncoder() 메소드를 구현하고 return 은 new BCryptPasswordEncoder 를 만들어준다.
-Bean 으로 만들어두고 비밀번호 확인이나 insert시 사용하면 된다.
+------------------------------------------------------------------------------------
 
-Security에 Member Entity로 userPassword 이용한 인증 인가 구현하기 
-	data.sql isnert 쿼리 만들어두기 (더미 데이터)
+OncePerRequestFilter는 그 이름에서도 알 수 있듯이 모든 서블릿에 일관된 요청을 처리하기 위해 만들어진 필터이다.
+
