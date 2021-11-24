@@ -31,3 +31,7 @@ logging.level:
 #    org:
 #      springframework: DEBUG
 
+jwt:
+  header: Authorization
+  secret: VGVzdFNlY3JldEtleeyYpOuKmOydgOyatOuPme2VmOyngOunkOqzoOynkeqwgOyEnOqzteu2gO2VmOqzoOyekOyVvOyngA==
+  token-validity-in-seconds: 86400
