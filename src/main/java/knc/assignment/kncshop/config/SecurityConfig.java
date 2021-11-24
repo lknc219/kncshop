@@ -1,5 +1,6 @@
 package knc.assignment.kncshop.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,7 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -25,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/api/hello") // admin으로 시작하는 url은 ADMIN 권한을 가진 사용자만 이용가능
                 .permitAll()
-                .anyRequest().permitAll();
+                .anyRequest().authenticated();
     }
 
     @Bean
