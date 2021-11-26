@@ -42,10 +42,19 @@ class MemberServiceTest {
         assertEquals(member, findMember);
 
     }
-//
-//    @Test
-//    public void findOneWithAuthoritiesByUsernameTest() {
-//        memberRepository.findOneWithAuthoritiesByUsername("admin")
-//    }
+
+    @Test
+    public void findOneWithAuthoritiesByUsernameTest() {
+        System.out.println("테스트 시작");
+        Optional<Member> findMember = memberRepository.findOneWithAuthoritiesByUsername("admin");
+        if(!findMember.isPresent()) {
+            System.out.println("테스트 실패");
+        }
+        Member member = findMember.get();
+        System.out.println("member.getMemberId() = " + member.getMemberId());
+        System.out.println("member.getUsername() = " + member.getUsername());
+        System.out.println("member.getMemberAuthorities() = " + member.getMemberAuthorities());
+        System.out.println("테스트 끝");
+    }
 
 }
