@@ -42,5 +42,10 @@ class MemberServiceTest {
         assertEquals(member, findMember);
 
     }
+//
+//    @Test
+//    public void findOneWithAuthoritiesByUsernameTest() {
+//        memberRepository.findOneWithAuthoritiesByUsername("admin")
+//    }
 
 }

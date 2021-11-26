@@ -18,10 +18,8 @@ import java.util.Set;
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long memberId;
-
-//    @Enumerated(EnumType.STRING)
-//    private UserType userType;
 
     private String username;
 
@@ -37,6 +35,8 @@ public class Member {
 
     private String memberName;
 
+    private String nickname;
+
     private String gender;
 
     private LocalDateTime joinDate;
@@ -46,11 +46,21 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Purchase> purchases;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_authority",
-            joinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "member_id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name",referencedColumnName = "authority_name")})
-    private Set<Authority> authorities;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "member_authority",
+//            joinColumns = {@JoinColumn(name = "member_id", referencedColumnName = "member_id")},
+//            inverseJoinColumns = {@JoinColumn(name = "authority_name",referencedColumnName = "authority_name")})
+//    private Set<Authority> authorities;
+
+    @OneToMany(mappedBy = "member")
+    private Set<MemberAuthority> memberAuthorities;
+
+    public Member (String username, String password, String nickname, boolean activated) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.activated = activated;
+    }
 
 }

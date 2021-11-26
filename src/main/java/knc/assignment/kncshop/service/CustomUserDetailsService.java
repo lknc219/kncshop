@@ -34,8 +34,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (!member.isActivated()) {
             throw new RuntimeException(username + " -> 활성화 되지 않았습니다.");
         }
-        List<GrantedAuthority> grantedAuthorities = member.getAuthorities().stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
+        List<GrantedAuthority> grantedAuthorities = member.getMemberAuthorities().stream()
+                .map(authority -> new SimpleGrantedAuthority(authority.getAuthority().getAuthorityName()))
                 .collect(Collectors.toList());
         return new User(member.getUsername(),
                 member.getPassword(),
