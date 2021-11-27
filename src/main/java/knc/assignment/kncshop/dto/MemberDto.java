@@ -22,7 +22,7 @@ public class MemberDto {
     private String password;
 
     @NotNull
-    private String nickName;
+    private String nickname;
 
 
 //    public static MemberDto from(Member member) {

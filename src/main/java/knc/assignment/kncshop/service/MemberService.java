@@ -3,6 +3,7 @@ package knc.assignment.kncshop.service;
 import javassist.bytecode.DuplicateMemberException;
 import knc.assignment.kncshop.domain.Authority;
 import knc.assignment.kncshop.domain.Member;
+import knc.assignment.kncshop.domain.MemberAuthority;
 import knc.assignment.kncshop.dto.MemberDto;
 import knc.assignment.kncshop.repository.MemberRepository;
 import knc.assignment.kncshop.util.SecurityUtil;
@@ -23,7 +24,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
     
     @Transactional
-    public Member signUp(MemberDto memberDto) throws DuplicateMemberException {
+    public Member signup(MemberDto memberDto) throws DuplicateMemberException {
         if (memberRepository.findOneWithAuthoritiesByUsername(memberDto.getUsername()).orElse(null) != null) {
             throw new DuplicateMemberException("이미 가입되어 있는 유저입니다.");
         }
@@ -35,15 +36,24 @@ public class MemberService {
         Member member = Member.builder()
                 .username(memberDto.getUsername())
                 .password(memberDto.getPassword())
-                .nickname(memberDto.getNickName())
+                .nickname(memberDto.getNickname())
                 .activated(true)
                 .build();
 
-        return memberRepository.save(member);
+        MemberAuthority memberAuthority = MemberAuthority.builder()
+                .member(member)
+                .authority(authority)
+                .build();
+
+        member = memberRepository.save(member);
+
+
+
+        return member;
     }
 
     @Transactional(readOnly = true)
-    public Optional<Member> getUserWithAuthorities(String username) {
+    public Optional<Member> getMemberWithAuthorities(String username) {
         return memberRepository.findOneWithAuthoritiesByUsername(username);
     }
 

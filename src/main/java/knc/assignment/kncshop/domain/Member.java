@@ -63,4 +63,9 @@ public class Member {
         this.activated = activated;
     }
 
+    public void addMemberAuthorities(MemberAuthority memberAuthority) {
+        this.memberAuthorities.add(memberAuthority);
+        memberAuthority.setMember(this);
+    }
+
 }
